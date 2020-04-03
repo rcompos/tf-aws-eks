@@ -4,6 +4,7 @@ locals {
    repo = "cowsaid"
    url = "https://github.com/rcompos/cowsaid"
    outfile = "service-host.txt"
+   //config ="../basic/kubectl"
 }
 
 resource null_resource before {
