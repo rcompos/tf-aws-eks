@@ -1,3 +1,7 @@
+variable "cluster_name" {
+  default = "dev-eks"
+}
+
 variable "region" {
   default = "us-west-2"
 }

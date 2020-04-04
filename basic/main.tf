@@ -42,14 +42,16 @@ provider "kubernetes" {
 data "aws_availability_zones" "available" {
 }
 
+# Set cluster name if not specified
 locals {
-  cluster_name = "test-eks-${random_string.suffix.result}"
+   #cluster_name = var.cluster_name != null ? var.cluster_name : "test-eks-${random_string.suffix.result}"
+   cluster_name = var.cluster_name
 }
 
-resource "random_string" "suffix" {
-  length  = 8
-  special = false
-}
+#resource "random_string" "suffix" {
+#  length  = 8
+#  special = false
+#}
 
 resource "aws_security_group" "worker_group_mgmt_one" {
   name_prefix = "worker_group_mgmt_one"
@@ -102,7 +104,9 @@ module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "2.6.0"
 
-  name                 = "test-vpc"
+  #name                 = "test-vpc"
+  name                 = "${local.cluster_name}-vpc"
+
   cidr                 = "10.0.0.0/16"
   azs                  = data.aws_availability_zones.available.names
   private_subnets      = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
