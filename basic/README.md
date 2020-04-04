@@ -1,4 +1,4 @@
-# AWS EKS Terraform
+# tf-aws-eks
 
 Terraform for creating AWS EKS clusters.
 
