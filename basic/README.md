@@ -16,7 +16,9 @@ Terraform for creating AWS EKS clusters.
 Specify the AWS region in _variables.tf_.
 
 ```
-# Variables
+variable "cluster_name" {
+  default = "dev-eks"
+}
 variable "region" {
   default = "us-west-2"
 }
