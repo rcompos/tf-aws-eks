@@ -53,33 +53,10 @@ Run terraform to create Kubernetes cluster.
 ⇒ terraform apply  
 ```
 
-Get LoadBalancer service hostname.
-
-```
-⇒ cat service-host.txt
-aa134b5e044284b278320d44958d4fa8-979909689.us-west-2.elb.amazonaws.com
-```
-
-View service.
-
-```
-⇒ curl http://aa134b5e044284b278320d44958d4fa8-979909689.us-west-2.elb.amazonaws.com
- _________________
-< E Pluribus Unix >
- -----------------
-        \   ^__^
-         \  (oo)\_______
-            (__)\       )\/\
-                ||----w |
-                ||     ||
-```
-
-Uninstall Helm chart cowsaid.  Or delete AWS load balancer created for service,
-otherwise destroy will failing leaving danglers.
-
-```
-⇒ helm --kubeconfig=kubeconfig_test-eks-BgQLqhkO -n cowsaid uninstall cowsaid
-```
+Prior to destruction, delete any dependent AWS resources created outside 
+Terraform.  Uninstall Helm charts if LoadBalancer services are created.
+Remove all AWS resources not managed in Terraform  (such as load balancer 
+created for service), otherwise destroy will fail, leaving danglers.
 
 Destroy cluster.  
 
