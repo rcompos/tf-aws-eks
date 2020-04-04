@@ -55,13 +55,15 @@ Run terraform to create Kubernetes cluster.
 ⇒ terraform apply  
 ```
 
-Run kubectl to get cluster nodes.
+Run kubectl to get cluster nodes. Substitute actual kubeconfig file 
+name for kubeconfig_dev-eks.
 
 ```
 ⇒ kubectl --kubeconfig=kubeconfig_dev-eks get no -o wide
 ```
 
-Run helm to list installed charts.
+Run helm to list installed charts.  Substitute actual kubeconfig file 
+name for kubeconfig_dev-eks.
 
 ```
 ⇒ helm --kubeconfig=kubeconfig_dev-eks ls --all-namespaces

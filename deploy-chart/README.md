@@ -30,13 +30,15 @@ installed from ../basic directory.
 ⇒ terraform apply
 ```
 
-List all helm charts.
+List all helm charts. 
+Substitute actual kubeconfig file name for kubeconfig_dev-eks.
 
 ```
 ⇒ helm --kubeconfig=../basic/kubeconfig_dev-eks ls --all-namespaces
 ```
 
 Delete helm charts when done. Substitute actual namespace and chart name.
+Substitute actual kubeconfig file name for kubeconfig_dev-eks.
 
 ```
 ⇒ helm --kubeconfig=../basic/kubeconfig_dev-eks -n <namespace> uninstall <chart>
