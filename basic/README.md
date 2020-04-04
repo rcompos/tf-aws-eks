@@ -55,6 +55,19 @@ Run terraform to create Kubernetes cluster.
 ⇒ terraform apply  
 ```
 
+Run kubectl to get cluster nodes.
+
+```
+⇒ kubectl --kubeconfig=kubeconfig_dev-eks get no -o wide
+```
+
+Run helm to list installed charts.
+
+```
+⇒ helm --kubeconfig=kubeconfig_dev-eks ls --all-namespaces
+```
+
+ATTENTION:
 Prior to destruction, delete any dependent AWS resources created outside 
 Terraform.  Uninstall Helm charts if LoadBalancer services are created.
 Remove all AWS resources not managed in Terraform  (such as load balancer 
