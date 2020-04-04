@@ -22,4 +22,4 @@ https://github.com/terraform-aws-modules/terraform-aws-eks.
 
 ### Deploy demo helm chart
 
-`deploy`
+`deploy-chart`
