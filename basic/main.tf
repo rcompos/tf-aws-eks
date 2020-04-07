@@ -133,9 +133,11 @@ module "eks" {
   subnets      = module.vpc.private_subnets
 
   tags = {
-    Environment = "test"
-    GithubRepo  = "terraform-aws-eks"
-    GithubOrg   = "terraform-aws-modules"
+    #Environment = "test"
+    #GithubRepo  = "terraform-aws-eks"
+    #GithubOrg   = "terraform-aws-modules"
+    cluster = local.cluster_name
+    env = "dev"
   }
 
   vpc_id = module.vpc.vpc_id
